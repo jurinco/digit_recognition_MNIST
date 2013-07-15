@@ -1,0 +1,71 @@
+i = 1;
+i = val;
+figure
+imagesc(reshape(tr_feats(i,:),28,28)'); colormap gray;
+figure
+imshow(reshape(tr_feats(i,:),28,28)');
+
+A = reshape(tr_feats1(i,:),28,28);
+I = mat2gray(A', [0 1])
+
+figure
+imagesc(reshape(tr_feats1(i,:),28,28)'); colormap gray;
+figure
+imshow(reshape(tr_feats1(i,:),28,28)');
+
+
+
+
+Find image where the benefits of normalization is visually evident.
+  row of unnormalized data with lowest sum
+
+% TRAINING DATA
+[val i] = min(sum(tr_feats1,2))
+
+% ORIGINAL
+min_i = tr_feats1(val,:);
+Min = reshape(min_instance,28,28)';
+I = mat2gray(Min, [min(min_i) max(min_i)]);
+figure
+imshow(I, [min(min) max(min_i)]))
+
+% NORMALIZED
+figure
+imagesc(reshape(tr_feats(val,:),28,28)'); colormap gray;
+
+
+
+
+% TESTING DATA
+[val i] = min(sum(te_feats1,2))
+
+% ORIGINAL
+figure
+imshow(mat2gray(reshape(te_feats1(val,:),28,28)'))
+
+% NORMALIZED
+figure
+imagesc(reshape(te_feats(val,:),28,28)'); colormap gray;
+
+
+
+
+
+
+Compare l1 and l2 normalization for the image
+
+
+
+total = 0
+d = 28
+
+[1,2,3,4,5,6,7,14].each { |c|
+  total += (d + 1 - c)**2
+}
+
+total += 28 * 28
+
+
+
+
+A = [1 2 3; 4 5 6; 7 8 9; 0 2 4]
